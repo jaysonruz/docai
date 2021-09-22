@@ -1,0 +1,17 @@
+{%extends "docai_app/docai_app_base.html" %}
+
+{% block body_block %}
+<div class="jumbotron">
+    <h1>Document Details</h1>
+    <br>
+    <br>
+    <h3>{{document_detail.title}}</h3>
+    
+    <p>{{document_detail.doc_summary}}</p>
+    <p>{{document_detail.upload_date}}</p>
+    <a href="{{document_detail.doc_url}}">link</a>
+</div>
+<div class="container">
+    <p><a class= 'btn btn-warning' href="{% url 'docai_app:update' pk=document_detail.pk %}">Update</a></p>
+</div> 
+{% endblock %}

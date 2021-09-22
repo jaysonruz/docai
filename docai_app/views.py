@@ -16,3 +16,16 @@ class DocumentListView(ListView):
             return models.Document.objects.filter( Q(title__icontains=query) | Q(doc_summary__icontains=query))
         else:
             return models.Document.objects.all()
+
+class DocumentCreateView(CreateView):
+    fields = ['title','doc_url','doc_summary','upload_date']
+    model = models.Document
+
+class DocumentDetailView(DetailView):
+    context_object_name = "document_detail"
+    model = models.Document
+    template_name = 'docai_app/document_detail.html'
+
+class DocumentUpdateView(UpdateView):
+    fields = ['title','doc_url','doc_summary']
+    model = models.Document

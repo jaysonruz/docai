@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class Document(models.Model):
     doc_id = models.AutoField(db_column='DOC_ID', primary_key=True)  # Field name made lowercase.
@@ -11,3 +11,10 @@ class Document(models.Model):
     class Meta:
         # managed = False
         db_table = 'ibef_tb'
+    
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("docai_app:detail", kwargs={"pk": self.pk})
+    

@@ -2,8 +2,12 @@
 
 {% block body_block %}
 <div class="jumbotron">
-<h1 class="display-4">welcome to Docai</h1>
+<h1 class="display-5">welcome to Docai</h1>
+<hr class="my-4">
 <p class="lead">Lorem ipsum</p>
+<p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</p>
 </div>
 <ol>
 <div class="row mb-2 posts">
@@ -12,7 +16,7 @@
                         <div class="cards">
                             <div class="row no-gutters border rounded  flex-md-row mb-4 shadow-lg h-md-250">
                                 <div class="col p-4 d-flex flex-column position-static">
-                                    <h3 class="my-1">{{doc.title}}</a></h3>
+                                    <h3 class="my-2"><a href="{{doc.doc_id}}">{{doc.title|slice:":20"}}</a></h3>
                                     
                                     <p class="mb-auto">{{doc.doc_summary|slice:":255"}}</p>
                                     <div class="container">
