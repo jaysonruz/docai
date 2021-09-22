@@ -1,0 +1,37 @@
+{%extends "docai_app/docai_app_base.html" %}
+
+{% block body_block %}
+<div class="jumbotron">
+<h1 class="display-4">welcome to Docai</h1>
+<p class="lead">Lorem ipsum</p>
+</div>
+<ol>
+<div class="row mb-2 posts">
+    {% for doc in documents%}
+                        <div class="col-md-4">
+                        <div class="cards">
+                            <div class="row no-gutters border rounded  flex-md-row mb-4 shadow-lg h-md-250">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <h3 class="my-1">{{doc.title}}</a></h3>
+                                    
+                                    <p class="mb-auto">{{doc.doc_summary|slice:":255"}}</p>
+                                    <div class="container">
+                                        <div class="row">
+ 
+                                            <div class="col-xs-6">
+                                            <p class="mb-auto text-muted">{{doc.upload_date}}</p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                            <a href="{{doc.doc_url}}" class="btn btn-secondary  btn-sm active" role="button" aria-pressed="true">link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                    </div>
+    {%endfor%}
+</div>
+</ol>
+
+{% endblock %}
